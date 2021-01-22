@@ -1,0 +1,35 @@
+<%= form_with(model: offer) do |f| %>
+  <% if offer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(offer.errors.count, "error") %> prohibited this offer from being saved:</h2>
+
+      <ul>
+        <% offer.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<br>
+  <div class="form-group">
+    <%= f.label :offer_start_day, "スタート日" %>
+    <%= f.date_field :offer_start_day, class:"form-control", placeholder:"スタート日"%>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :offer_place, class: "form-control", placeholder:"拠点名" %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :offer_course, class:"form-control", placeholder:"コース名"%>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :offer_howmany, class:"form-control", placeholder:"人数"%>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :offer_tantou, class:"form-control", placeholder:"担当部長名"%>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

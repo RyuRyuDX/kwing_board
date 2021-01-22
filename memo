@@ -1,0 +1,5 @@
+apply
+①氏名  apply_name
+②住所（最寄り駅）apply_station
+③年齢　apply_age
+④面接可能日確認 apply_date

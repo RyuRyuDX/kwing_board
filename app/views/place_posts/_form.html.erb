@@ -1,0 +1,27 @@
+<%= form_with(model: place_post) do |form| %>
+  <% if place_post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(place_post.errors.count, "error") %> prohibited this place_post from being saved:</h2>
+
+      <ul>
+        <% place_post.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :place_name %>
+    <%= form.text_field :place_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address %>
+  </div>
+
+  <div class="actions">
+    <button type="submit" class="btn btn-primary"><%= form.submit "登録" %></button>
+  </div>
+<% end %>

@@ -8,14 +8,14 @@ default: &default
 
 development:
   <<: *default
-  database: myapp_development
+  database: kwingboard_development
 
 test:
   <<: *default
-  database: myapp_test
+  database: kwingboard_test
 
 production:
   <<: *default
-  database: myapp_production
+  database: kwingboard_production
   username: myapp
   password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>

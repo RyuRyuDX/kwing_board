@@ -1,0 +1,57 @@
+<%= form_with(model: apply_post) do |f| %>
+  <% if apply_post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(apply_post.errors.count, "error") %> prohibited this apply_post from being saved:</h2>
+
+      <ul>
+        <% apply_post.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<br>
+  <div class="form-group">
+    <%= f.text_field :tantou, class:"form-control", placeholder:"担当者"%>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :candidate_name, class: "form-control", placeholder:"応募者" %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :age, class:"form-control", placeholder:"年齢"%>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :address, class:"form-control", placeholder:"住所"%>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :course, class:"form-control", placeholder:"募集コース"%>
+  </div>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :phonenumber, class:"form-control", placeholder:"電話番号"%>
+  </div>
+  <div class="form-group">
+    <%= f.email_field :mail, class:"form-control", placeholder:"email"%>
+  </div>
+  <div class="form-group">
+    <%= f.label :apply_date, "応募日" %>
+    <%= f.date_field :apply_date, class:"form-control", placeholder:"応募日"%>
+  </div>
+  <div class="form-group">
+    <%= f.label :interview, "面接日" %>
+    <%= f.date_field :interview, class:"form-control", placeholder:"面接日"%>
+  <div class="form-group">
+    <%= f.select :passfail,  {'採用': '採用', '不採用': '不採用'}, { include_blank: '合否'}, { class: 'form-control' , required: true } %>
+  </div>
+
+  <% if @apply_post.passfail == "採用"%>
+    <%= render 'pass_candidate', apply_post: @apply_post %>
+  <% end %>
+
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<table class="table table-hover">
+    <tbody>
+      <tr>
+        <th scope="row">車番</th> 
+        <td><%= @car_post.car_number %></td>
+      </tr>
+      <tr>
+        <th scope="row">車種</th> 
+        <td><%= @car_post.car_name %></td>
+      </tr>
+      <tr>
+        <th scope="row">ドライバー</th> 
+        <td><%= @car_post.driver %></td>
+      </tr>
+      <tr>
+        <th scope="row">引き渡し日</th> 
+        <td><%= @car_post.car_to_driver %></td>
+      </tr>
+      <tr>
+        <th scope="row">コース</th> 
+        <td><%= @car_post.car_course %></td>
+      </tr>
+      <tr>
+        <th scope="row">減算書類</th> 
+        <td><%= @car_post.gensan %></td>
+      </tr>
+      <tr>
+        <th scope="row">引き取り</th> 
+        <td><%= @car_post.turn_car %></td>
+      </tr>
+      <tr>
+        <th scope="row">配車</th> 
+        <td><%= @car_post.work_or_not %></td>
+      </tr>
+      <tr>
+    </tbody>
+  </table>
+
+<button type="button" class="btn btn-success"><%= link_to '編集', edit_car_post_path(@car_post) %></button>
+<button type="button" class="btn btn-success"><%= link_to '戻る', car_posts_path %></button>

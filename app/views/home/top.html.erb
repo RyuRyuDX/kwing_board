@@ -1,0 +1,100 @@
+<h1>掲示板TOP</h1>
+<br>
+
+<h3>オファー</h3>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>スタート日</th>
+      <th>担当部長名</th>
+      <th>拠点</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @offers.each do |offer| %>
+      <tr class="table-warning">
+        <td><%= l offer.offer_start_day, format: :too_short %></td>
+        <td><%= offer.offer_tantou %></td>
+        <td><%= offer.offer_place %></td>
+        <td>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            リンク
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item"><%= link_to '詳細', offer %></a>
+            <a class="dropdown-item"><%= link_to '編集', edit_offer_path(offer) %></a>
+          </div>
+        </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<h3>応募者更新情報</h3>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>更新日時</th>
+      <th>応募者名</th>
+      <th>住所</th>
+      <th>応募日</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @apply_posts.each do |apply_post| %>
+      <tr class="table-warning">
+        <td><%= l apply_post.created_at, format: :short %></td>
+        <td><%= apply_post.candidate_name %></td>
+        <td><%= apply_post.address %></td>
+        <td><%= l apply_post.apply_date, format: :too_short %></td>
+        <td>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            リンク
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item"><%= link_to '詳細', apply_post %></a>
+            <a class="dropdown-item"><%= link_to '編集', edit_apply_post_path(apply_post) %></a>
+          </div>
+        </div>
+        </td>      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+
+<h3>車両更新情報</h3>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>更新日時</th>
+      <th>車番</th>
+      <th>車名（メーカー、車種）</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @car_posts.each do |car_post| %>
+      <tr class="table-warning">
+        <td><%= l car_post.created_at, format: :short %></td>
+        <td><%= car_post.car_number %></td>
+        <td><%= car_post.car_name %></td>
+        <td>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            リンク
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item"><%= link_to '詳細', car_post %></a>
+            <a class="dropdown-item"><%= link_to '編集', edit_car_post_path(car_post) %></a>
+          </div>
+        </div>
+        </td>      
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>

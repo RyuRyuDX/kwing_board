@@ -1,0 +1,48 @@
+<%= form_with(model: car_post) do |f| %>
+  <% if car_post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(car_post.errors.count, "error") %> prohibited this car_post from being saved:</h2>
+
+      <ul>
+        <% car_post.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+  <div class="form-group">
+    <%= f.number_field :car_number, class: "form-control", placeholder:"車番" %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :car_name, class:"form-control", placeholder:"車種"%>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :driver, class:"form-control", placeholder:"ドライバー"%>
+  </div>
+  <div class="form-group">
+    <%= f.label :car_to_driver, "引き渡し日" %>
+    <%= f.date_field :car_to_driver, class:"form-control", placeholder:"引き渡し日"%>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :car_course, class:"form-control", placeholder:"コース"%>
+  </div>
+  <div class="form-group">
+    <%= f.label "減算書類" %>
+    <%= f.select :gensan, {'回収済': '回収済', '未回収': '未回収'}, { class: 'form-control' , required: true } %>
+  </div>
+    <div class="form-group">
+    <%= f.label :turn_car, "引き取り日" %>
+    <%= f.date_field :turn_car, class:"form-control", placeholder:"引き取り日"%>
+  </div>
+  <div class="form-group">
+    <%= f.label  "配車" %>
+    <%= f.select :work_or_not,  {'配車可能': '配車可能', '整備中': '整備中'}, { class: 'form-control' , required: true }%>
+  </div>
+
+  <div class="form-group">
+    <%= f.submit "登録", class:"btn btn-primary" %>
+  </div>
+<% end %>

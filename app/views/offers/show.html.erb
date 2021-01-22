@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<table class="table table-hover">
+    <tbody>
+      <tr>
+        <th scope="row">スタート日</th> 
+        <td><%= l @offer.offer_start_day, format: :too_short %></td>
+      </tr>
+      <tr>
+        <th scope="row">拠点名</th> 
+        <td><%= @offer.offer_place %></td>
+      </tr>
+      <tr>
+        <th scope="row">コース名</th> 
+        <td><%= @offer.offer_course %></td>
+      </tr>
+      <tr>
+        <th scope="row">人数</th> 
+        <td><%= @offer.offer_howmany %></td>
+      </tr>
+      <tr>
+        <th scope="row">担当部長名</th> 
+        <td><%= @offer.offer_tantou %></td>
+      </tr>
+    </tbody>
+  </table>
+
+<button type="button" class="btn btn-success"><%= link_to '編集', edit_offer_path(@offer) %></button>
+<button type="button" class="btn btn-success"><%= link_to '戻る', offers_path %></button>

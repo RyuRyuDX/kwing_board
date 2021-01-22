@@ -1,0 +1,15 @@
+<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+  <a class="navbar-brand"><%= link_to "K-WING掲示板", root_path %></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link"><%= link_to "拠点", place_posts_path %></a>
+      <a class="nav-item nav-link"><%= link_to "車両管理", car_posts_path %></a>
+      <a class="nav-item nav-link"><%= link_to "応募者管理", apply_posts_path %></a>
+      <a class="nav-item nav-link"><%= link_to "オファー管理", offers_path %></a>
+    </div>
+  </div>
+</nav>
+

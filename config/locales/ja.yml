@@ -1,0 +1,7 @@
+ja:
+    time:
+      formats:
+        default: "%Y/%m/%d %H:%M"
+        short: "%m/%d %H:%M"
+        too_short: "%m/%d"
+  
