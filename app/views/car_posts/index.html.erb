@@ -2,11 +2,33 @@
 
 <h1>車両管理TOP</h1>
 
+<br>
+<div class="btn-group">
+  <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    車両検索
+  </button>
+  <div class="dropdown-menu">
+  <%= search_form_for @q do |f| %>
+    <%= f.label :maintenance, "整備先"%>
+    <%= f.search_field :maintenance_cont %>
+
+    <%= f.label :which_warehouse, "車両保管地"%>
+    <%= f.search_field :which_warehouse_cont %>
+
+    <%= f.submit "検索" %>
+  <% end %>
+  </div>
+</div>
+
+
 <table class="table table-hover">
   <thead>
     <tr>
       <th>車番</th>
       <th>車名（メーカー、車種）</th>
+      <th>整備先</th>
+      <th>入庫先</th>
+
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,15 +38,18 @@
       <tr>
         <td><%= car_post.car_number %></td>
         <td><%= car_post.car_name %></td>
+        <td><%= car_post.maintenance %></td>
+        <td><%= car_post.which_warehouse %></td>
+
         <td>
         <div class="dropdown">
           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             リンク
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item"><%= link_to '詳細', car_post %></a>
-            <a class="dropdown-item"><%= link_to '編集', edit_car_post_path(car_post) %></a>
-            <a class="dropdown-item"><%= link_to '削除', car_post, method: :delete, data: { confirm: 'Are you sure?' } %></a>
+            <%= link_to '詳細', car_post, class:"btn btn-outline-primary" %><br>
+            <%= link_to '編集', edit_car_post_path(car_post), class:"btn btn-outline-primary"  %><br>
+            <%= link_to '削除', car_post, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-primary" %>
           </div>
         </div>
         </td>
@@ -35,4 +60,4 @@
 
 <br>
 
-<button type="button" class="btn btn-success"><%= link_to '新規車両登録', new_car_post_path %></button>
+<button type="button" class="btn btn-outline-primary"><%= link_to '新規車両登録', new_car_post_path %></button>

@@ -12,7 +12,9 @@
   <% end %>
 
 
-
+  <div class="form-group">
+    <p>21-01−001→車両IDとして記載する</p>
+  </div>
   <div class="form-group">
     <%= f.number_field :car_number, class: "form-control", placeholder:"車番" %>
   </div>
@@ -27,22 +29,44 @@
     <%= f.date_field :car_to_driver, class:"form-control", placeholder:"引き渡し日"%>
   </div>
   <div class="form-group">
-    <%= f.text_field :car_course, class:"form-control", placeholder:"コース"%>
+    <%= f.text_field :car_course, class:"form-control", placeholder:"現場名"%>
+  </div>
+  <!-- <div class="form-group">
+    <%= f.label "減車書類" %>
+    <%= f.select :gensan, {'回収済': '回収済', '未回収': '未回収', '-': '-'}, { class: 'form-control' , required: true } %>
   </div>
   <div class="form-group">
-    <%= f.label "減算書類" %>
-    <%= f.select :gensan, {'回収済': '回収済', '未回収': '未回収'}, { class: 'form-control' , required: true } %>
-  </div>
-    <div class="form-group">
+    <h2>最終走行日</h2>
+  </div>　-->
+  <div class="form-group">
     <%= f.label :turn_car, "引き取り日" %>
     <%= f.date_field :turn_car, class:"form-control", placeholder:"引き取り日"%>
   </div>
   <div class="form-group">
+    <%= f.text_field :maintenace_name, class:"form-control", placeholder:"車両整備手続者" %>
+  </div>
+  <div class="form-group">
+    <%= f.label  "整備先" %>
+    <%= f.select :maintenance, {'-': '-','クオリティ': 'クオリティ', 'ベイカー号': 'ベイカー号', '秋田オート': '秋田オート', 'ジェット': 'ジェット','MSS': 'MSS','リペア': 'リペア','ガレージマニアック': 'ガレージマニアック'}, {class:"form-control", required: true} %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :to_maintenace, class:"form-control", placeholder:"整備先へ出した日" %>
+  </div>
+    <div class="form-group">
+    <%= f.text_field :maintenance_name, class:"form-control", placeholder:"車両整備手続者" %>
+  </div>
+  <div class="form-group">
+    <%= f.date_field :return_maintenace, class:"form-control", placeholder:"返却日" %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :which_warehouse, class:"form-control", placeholder:"入庫先" %>
+  </div>
+  <div class="form-group">
     <%= f.label  "配車" %>
-    <%= f.select :work_or_not,  {'配車可能': '配車可能', '整備中': '整備中'}, { class: 'form-control' , required: true }%>
+    <%= f.select :work_or_not,  {'配車可能': '配車可能', '整備中': '整備中', '修理待ち': '修理待ち'}, { class: 'form-control' , required: true }%>
   </div>
 
   <div class="form-group">
-    <%= f.submit "登録", class:"btn btn-primary" %>
+    <%= f.submit "登録", class:"btn btn-outline-primary" %>
   </div>
 <% end %>

@@ -5,6 +5,7 @@
 <table class="table table-hover">
   <thead>
     <tr>
+      <th>応募者名</th>
       <th>オファー</th>
       <th>面接</th>
       <th>契約</th>
@@ -17,6 +18,7 @@
   <tbody>
     <% @progresses.each do |progress| %>
       <tr>
+        <td><%= progress.progress_name %></td>
         <td><%= progress.progress_offer %></td>
         <td><%= progress.progress_interview %></td>
         <td><%= progress.progress_contract %></td>
@@ -28,9 +30,8 @@
             リンク
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item"><%= link_to '詳細', progress %></a>
-            <a class="dropdown-item"><%= link_to '編集', edit_progress_path(progress) %></a>
-            <a class="dropdown-item"><%= link_to '削除', progress, method: :delete, data: { confirm: 'Are you sure?' } %></a>
+            <%= link_to '詳細', progress, class:"btn btn-outline-primary" %>
+            <%= link_to '編集', edit_progress_path(progress), class:"btn btn-outline-primary" %>
           </div>
         </div>
         </td>
@@ -41,4 +42,4 @@
 
 <br>
 
-<button type="button" class="btn btn-success"><%= link_to '新規オファー登録', new_progress_path %></button>
+<button type="button" class="btn btn-outline-primary"><%= link_to '新規オファー登録', new_progress_path %></button>

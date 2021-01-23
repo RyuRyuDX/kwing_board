@@ -16,7 +16,7 @@
       <tr>
         <td><%= place_post.place_name %></td>
         <td><%= place_post.address %></td>
-        <td><%= link_to 'Show', place_post %></td>
+        <td><%= link_to 'Show', place_post, class:"btn btn-outline-primary" %></td>
         <td><%= link_to 'Edit', edit_place_post_path(place_post) %></td>
         <td><%= link_to 'Destroy', place_post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -26,4 +26,4 @@
 
 <br>
 
-<button type="button" class="btn btn-success"><%= link_to '新規拠点登録', new_place_post_path %></button>
+<button type="button" class="btn btn-outline-primary"><%= link_to '新規拠点登録', new_place_post_path %></button>

@@ -1,28 +1,21 @@
 class CarPostsController < ApplicationController
   before_action :set_car_post, only: [:show, :edit, :update, :destroy]
 
-  # GET /car_posts
-  # GET /car_posts.json
   def index
-    @car_posts = CarPost.all
+    @q =CarPost.ransack(params[:q])
+    @car_posts = @q.result(distinct: true)
   end
 
-  # GET /car_posts/1
-  # GET /car_posts/1.json
   def show
   end
 
-  # GET /car_posts/new
   def new
     @car_post = CarPost.new
   end
 
-  # GET /car_posts/1/edit
   def edit
   end
 
-  # POST /car_posts
-  # POST /car_posts.json
   def create
     @car_post = CarPost.new(car_post_params)
 
@@ -37,8 +30,6 @@ class CarPostsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /car_posts/1
-  # PATCH/PUT /car_posts/1.json
   def update
     respond_to do |format|
       if @car_post.update(car_post_params)
@@ -51,8 +42,6 @@ class CarPostsController < ApplicationController
     end
   end
 
-  # DELETE /car_posts/1
-  # DELETE /car_posts/1.json
   def destroy
     @car_post.destroy
     respond_to do |format|
@@ -67,7 +56,6 @@ class CarPostsController < ApplicationController
       @car_post = CarPost.find(params[:id])
     end
 
-    # Only allow a list of trusted parameters through.
     def car_post_params
       params.require(:car_post).permit(
         :car_number,
@@ -77,7 +65,14 @@ class CarPostsController < ApplicationController
         :car_course,
         :gensan,
         :turn_car,
-        :work_or_not
+        :work_or_not,
+        :to_maintenance,
+        :which_warehouse,
+        :return_maintenance,
+        :maintenance_name,
+        :maintenance,
+        :turn_car,
+        :car_to_driver
       )
     end
 end

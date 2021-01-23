@@ -5,9 +5,10 @@
 <table class="table table-hover">
   <thead>
     <tr>
+      <th>記載日時</th>
       <th>スタート日</th>
       <th>拠点</th>
-      <th>コース</th>
+      <th>コース数</th>
       <th>人数</th>
       <th>担当部長名</th>
       <th colspan="3"></th>
@@ -17,10 +18,11 @@
   <tbody>
     <% @offers.each do |offer| %>
       <tr>
+        <td><%= l offer.created_at, format: :short %></td>
         <td><%= l offer.offer_start_day, format: :too_short %></td>
         <td><%= offer.offer_place %></td>
         <td><%= offer.offer_course %></td>
-        <td><%= offer.offer_howmany %></td>
+        <td><%= offer.offer_howmany %>人</td>
         <td><%= offer.offer_tantou %></td>
         <td>
         <div class="dropdown">
@@ -28,9 +30,9 @@
             リンク
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item"><%= link_to '詳細', offer %></a>
-            <a class="dropdown-item"><%= link_to '編集', edit_offer_path(offer) %></a>
-            <a class="dropdown-item"><%= link_to '削除', offer, method: :delete, data: { confirm: 'Are you sure?' } %></a>
+            <%= link_to '詳細', offer, class:"btn btn-outline-primary" %><br>
+            <%= link_to '編集', edit_offer_path(offer), class:"btn btn-outline-primary" %><br>
+            <%= link_to '削除', offer, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-outline-primary" %>
           </div>
         </div>
         </td>
@@ -41,4 +43,4 @@
 
 <br>
 
-<button type="button" class="btn btn-success"><%= link_to '新規オファー登録', new_offer_path %></button>
+<button type="button" class="btn btn-outline-primary"><%= link_to '新規オファー登録', new_offer_path %></button>

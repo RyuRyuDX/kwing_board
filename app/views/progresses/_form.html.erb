@@ -1,5 +1,9 @@
 <%= form_with(model: progress) do |f| %>
 
+
+  <div class="form-group">
+    <%= f.text_field :progress_name, class:"form-control", placeholder:"応募者名"%>
+  </div>
   <div class="form-group">
     <%= f.text_field :progress_offer, class:"form-control", placeholder:"オファー"%>
   </div>

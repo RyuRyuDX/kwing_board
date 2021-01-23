@@ -74,7 +74,8 @@ class ProgressesController < ApplicationController
         :progress_interview,
         :progress_contract,
         :progress_training,
-        :progress_assignment
+        :progress_assignment,
+        :progress_name
       )
 
     end

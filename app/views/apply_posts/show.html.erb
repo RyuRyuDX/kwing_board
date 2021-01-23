@@ -3,6 +3,10 @@
   <table class="table table-hover">
     <tbody>
       <tr>
+        <th scope="row">ID</th> 
+        <td>2-01-001</td>
+      </tr>
+      <tr>
         <th scope="row">応募者</th> 
         <td><%= @apply_post.candidate_name %></td>
       </tr>
@@ -16,28 +20,35 @@
       </tr>
       <tr>
         <th scope="row">応募日</th> 
-        <td><%= l @apply_post.apply_date, format: :too_short %></td>
+        <td><%= @apply_post.apply_date %></td>
       </tr>
       <tr>
         <th scope="row">面接日</th> 
-        <td><%= l @apply_post.interview, format: :short %></td>
+        <td><%= @apply_post.interview %></td>
       </tr>
       <tr>
         <th scope="row">電話番号</th> 
         <td><%= @apply_post.phonenumber %></td>
       </tr>
       <tr>
-        <th scope="row">募集コース</th> 
+        <th scope="row">募集媒体</th> 
         <td><%= @apply_post.course %></td>
       </tr>
       <tr>
         <th scope="row">担当者</th> 
         <td><%= @apply_post.tantou %></td>
       </tr>
-      <tr>
+      <!-- <tr>
         <th scope="row">合否</th> 
         <td><%= @apply_post.passfail %></td>
+      </tr> -->
+      <tr>
+        <th scope="row">画像</th> 
+        <td><%= @apply_post.image %>
+</td>
       </tr>
+      
+
     </tbody>
   </table>
 

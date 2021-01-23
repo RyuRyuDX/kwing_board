@@ -19,16 +19,16 @@
       <tr>
         <td><%= apply_post.candidate_name %></td>
         <td><%= apply_post.address %></td>
-        <td><%= l apply_post.apply_date, format: :too_short%></td>
+        <td><%= apply_post.apply_date%></td>
         <td>
         <div class="dropdown">
           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             リンク
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item"><%= link_to '詳細', apply_post %></a>
-            <a class="dropdown-item"><%= link_to '編集', edit_apply_post_path(apply_post) %></a>
-            <a class="dropdown-item"><%= link_to '削除', apply_post, method: :delete, data: { confirm: 'Are you sure?' } %></a>
+            <button type="button" class="btn btn-success"><%= link_to '詳細', apply_post %></button><br>
+            <button type="button" class="btn btn-success"><%= link_to '編集', edit_apply_post_path(apply_post) %></button><br>
+            <button type="button" class="btn btn-success"><%= link_to '削除', apply_post, method: :delete, data: { confirm: 'Are you sure?' } %></button>
           </div>
         </div>
         </td>
