@@ -1,0 +1,24 @@
+<%= form_with(model: progress) do |f| %>
+
+  <div class="form-group">
+    <%= f.text_field :progress_offer, class:"form-control", placeholder:"オファー"%>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :progress_interview, class: "form-control", placeholder:"面接" %>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :progress_contract, class:"form-control", placeholder:"契約"%>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :progress_training, class:"form-control", placeholder:"研修"%>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :progress_assignment, class:"form-control", placeholder:"配属"%>
+  </div>
+
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

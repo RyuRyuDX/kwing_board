@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<table class="table table-hover">
+    <tbody>
+      <tr>
+        <th scope="row">オファー</th> 
+        <td><%= @progress.progress_offer %></td>
+      </tr>
+      <tr>
+        <th scope="row">面接</th> 
+        <td><%= @progress.progress_interview %></td>
+      </tr>
+      <tr>
+        <th scope="row">契約</th> 
+        <td><%= @progress.progress_contract %></td>
+      </tr>
+      <tr>
+        <th scope="row">研修</th> 
+        <td><%= @progress.progress_training %></td>
+      </tr>
+      <tr>
+        <th scope="row">配属</th> 
+        <td><%= @progress.progress_assignment %></td>
+      </tr>
+    </tbody>
+  </table>
+
+<button type="button" class="btn btn-success"><%= link_to '戻る', progresses_path %></button>

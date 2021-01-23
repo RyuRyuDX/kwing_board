@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_22_142218) do
+ActiveRecord::Schema.define(version: 2021_01_22_192854) do
 
   create_table "apply_posts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "candidate_name"
@@ -73,6 +73,16 @@ ActiveRecord::Schema.define(version: 2021_01_22_142218) do
     t.string "address"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "progresses", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "progress_offer"
+    t.string "progress_interview"
+    t.string "progress_contract"
+    t.string "progress_training"
+    t.string "progress_assignment"
   end
 
 end

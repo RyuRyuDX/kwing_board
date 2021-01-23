@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<h1>進捗管理</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>オファー</th>
+      <th>面接</th>
+      <th>契約</th>
+      <th>研修</th>
+      <th>配属</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @progresses.each do |progress| %>
+      <tr>
+        <td><%= progress.progress_offer %></td>
+        <td><%= progress.progress_interview %></td>
+        <td><%= progress.progress_contract %></td>
+        <td><%= progress.progress_training %></td>
+        <td><%= progress.progress_assignment%></td>
+        <td>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            リンク
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item"><%= link_to '詳細', progress %></a>
+            <a class="dropdown-item"><%= link_to '編集', edit_progress_path(progress) %></a>
+            <a class="dropdown-item"><%= link_to '削除', progress, method: :delete, data: { confirm: 'Are you sure?' } %></a>
+          </div>
+        </div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<button type="button" class="btn btn-success"><%= link_to '新規オファー登録', new_progress_path %></button>
