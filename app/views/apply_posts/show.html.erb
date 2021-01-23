@@ -38,14 +38,10 @@
         <th scope="row">担当者</th> 
         <td><%= @apply_post.tantou %></td>
       </tr>
-      <!-- <tr>
-        <th scope="row">合否</th> 
-        <td><%= @apply_post.passfail %></td>
-      </tr> -->
       <tr>
-        <th scope="row">画像</th> 
-        <td><%= @apply_post.image %>
-</td>
+      <% @apply_post.images.each do |image| %>
+          <%= image_tag(image) %> 
+      <% end %>
       </tr>
       
 

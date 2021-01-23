@@ -80,7 +80,6 @@ class ApplyPostsController < ApplicationController
         :phonenumber,
         :passfail,
         :course,
-        :tantou
-      )
+        :tantou, images: [])
     end
 end

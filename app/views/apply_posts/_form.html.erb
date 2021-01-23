@@ -39,7 +39,7 @@
     <%= f.date_field :apply_date, class:"form-control", placeholder:"応募日"%>
   </div>
 
-  <%= f.file_field :image%>
+  <%= f.file_field :images, multiple: true %>
   <!-- <div class="form-group">
     <%= f.label :interview, "面接日" %>
     <%= f.date_field :interview, class:"form-control", placeholder:"面接日"%>
